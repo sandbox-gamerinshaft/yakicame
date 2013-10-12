@@ -1,4 +1,6 @@
 Yakicame1::Application.routes.draw do
+  get "homes/index"
+
   resources :tweets
   devise_for :users
 
