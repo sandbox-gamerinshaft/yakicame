@@ -1,4 +1,18 @@
 Yakicame1::Application.routes.draw do
+  get "tweets/index"
+
+  get "tweets/new"
+
+  get "tweets/create"
+
+  get "tweets/show"
+
+  get "tweets/edit"
+
+  get "tweets/update"
+
+  get "tweets/destroy"
+
   devise_for :users
 
   # The priority is based upon order of creation:
