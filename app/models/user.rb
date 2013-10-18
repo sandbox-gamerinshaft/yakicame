@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login, :image, :name, :screen_name, :bio
   attr_accessor :login
   # attr_accessible :title, :body
+  
+  mount_uploader :image, ImageUploader
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
