@@ -3,7 +3,7 @@ Yakicame1::Application.routes.draw do
 
   get "users/show"
 
-  get "homes/index"
+    get "homes/index"
 
   resources :tweets
   devise_for :users
