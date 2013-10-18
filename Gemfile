@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml-rails'
 gem 'devise'
 gem 'carrierwave'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required
