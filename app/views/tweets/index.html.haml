@@ -1,4 +1,8 @@
 %h1 Tweets#index
 %p Find me in app/views/tweets/index.html.haml
+= form_for @tweet do |f|
+  = f.text_area :content
+  = f.submit
+
 = link_to 'edit',edit_user_registration_path
 = link_to 'profiele',users_show_path(current_user)

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessor :login
   # attr_accessible :title, :body
   
+  has_many :tweets
+
   mount_uploader :image, ImageUploader
 
   def self.find_for_database_authentication(warden_conditions)
