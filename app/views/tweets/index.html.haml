@@ -1,21 +1,24 @@
 %h1 Listing tweets
+= image_tag @user.image_url(:thumb).to_s if @user.image?
+= '@' + @user.name if @user.name?
+= link_to 'profile',users_show_path(@user)
+
+
 
 %table
   %tr
-    %th User
-    %th Content
-    %th
-    %th
-    %th
-
-  - @tweets.each do |tweet|
+    %th tweet
+    %th favorite
+    %th follow
+    %th follower
+    
     %tr
-      %td= tweet.user_id
-      %td= tweet.content
-      %td= link_to 'Show', tweet
-      %td= link_to 'Edit', edit_tweet_path(tweet)
-      %td= link_to 'Destroy', tweet, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= @user.tweets.count
+      %td a
+      %td a
+      %td a
 
+      
 %br
 
-= link_to 'New Tweet', new_tweet_path
+= render 'form'

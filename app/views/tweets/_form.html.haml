@@ -7,10 +7,11 @@
           %li= msg
 
   .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
     = f.label :content
     = f.text_field :content
+
+  .field
+    = f.label :image
+    = f.file_field :image
   .actions
     = f.submit 'Save'
