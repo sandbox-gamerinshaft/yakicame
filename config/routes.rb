@@ -1,6 +1,6 @@
 Yakicame1::Application.routes.draw do
   get "users/index"
-  get "users/show"
+  get "users/show",path: "users/show/:name"
 
   resources :tweets
 

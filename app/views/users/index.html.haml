@@ -4,7 +4,8 @@
 - @users.each do |u|
   - if u == current_user
   - else
-    = image_tag u.image_url(:thumb).to_s
+    = image_tag u.image_url(:thumb).to_s if u.image?
     = u.name
     = u.bio
+    = link_to 'detail',users_show_path(u)
   %br
