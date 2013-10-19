@@ -1,4 +1,8 @@
 Yakicame1::Application.routes.draw do
+  get "favorites/create"
+
+  get "favorites/destroy"
+
   get "users/index"
   get "users/show",path: "users/show/:name"
 
