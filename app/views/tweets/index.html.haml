@@ -3,6 +3,8 @@
 = image_tag @user.image_url(:thumb).to_s if @user.image?
 = '@' + @user.name if @user.name?
 = link_to 'profile',users_show_path(@user)
+= link_to 'edit',edit_user_registration_path()
+
 
 
 

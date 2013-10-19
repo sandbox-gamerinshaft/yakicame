@@ -3,7 +3,7 @@
 
 - @users.each do |u|
   - if u == current_user
-  - else
+  - else 
     = image_tag u.image_url(:thumb).to_s if u.image?
     = u.name
     = u.bio
