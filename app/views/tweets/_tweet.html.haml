@@ -1,0 +1,10 @@
+- @tweets.each do |t|
+  = image_tag t.user.image_url(:thumb).to_s if t.user.image?
+  %br
+  = '@' + t.user.name
+  %br
+  = t.content if t.content?
+  %br
+  = image_tag t.timage_url(:thumb).to_s if t.timage?
+  %br
+  %hr  
