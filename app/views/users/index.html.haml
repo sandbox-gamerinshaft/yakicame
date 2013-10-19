@@ -1,2 +1,10 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+%h1 ユーザー一覧
+%p フォローしましょう！
+
+- @users.each do |u|
+  - if u == current_user
+  - else
+    = image_tag u.image_url(:thumb).to_s
+    = u.name
+    = u.bio
+  %br
