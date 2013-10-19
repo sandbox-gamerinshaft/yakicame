@@ -1,2 +1,7 @@
-%h1 Tweets#edit
-%p Find me in app/views/tweets/edit.html.haml
+%h1 Editing tweet
+
+= render 'form'
+
+= link_to 'Show', @tweet
+\|
+= link_to 'Back', tweets_path

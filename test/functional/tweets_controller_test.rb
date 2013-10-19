@@ -1,9 +1,14 @@
 require 'test_helper'
 
 class TweetsControllerTest < ActionController::TestCase
+  setup do
+    @tweet = tweets(:one)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
+    assert_not_nil assigns(:tweets)
   end
 
   test "should get new" do
@@ -11,29 +16,34 @@ class TweetsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "should create tweet" do
+    assert_difference('Tweet.count') do
+      post :create, tweet: { content: @tweet.content, user_id: @tweet.user_id }
+    end
+
+    assert_redirected_to tweet_path(assigns(:tweet))
   end
 
-  test "should get show" do
-    get :show
+  test "should show tweet" do
+    get :show, id: @tweet
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit
+    get :edit, id: @tweet
     assert_response :success
   end
 
-  test "should get update" do
-    get :update
-    assert_response :success
+  test "should update tweet" do
+    put :update, id: @tweet, tweet: { content: @tweet.content, user_id: @tweet.user_id }
+    assert_redirected_to tweet_path(assigns(:tweet))
   end
 
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
-  end
+  test "should destroy tweet" do
+    assert_difference('Tweet.count', -1) do
+      delete :destroy, id: @tweet
+    end
 
+    assert_redirected_to tweets_path
+  end
 end

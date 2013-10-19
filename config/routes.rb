@@ -1,12 +1,12 @@
 Yakicame1::Application.routes.draw do
   get "users/index"
-
   get "users/show"
 
-    get "homes/index"
-
   resources :tweets
-  devise_for :users
+
+  get "homes/index"
+
+  devise_for :users 
 
   unauthenticated do
     as :user do
