@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   attr_accessor :login
   # attr_accessible :title, :body
   
-  has_many :tweets
+  has_many :tweets,dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 

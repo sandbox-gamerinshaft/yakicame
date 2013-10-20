@@ -1,12 +1,12 @@
 Yakicame1::Application.routes.draw do
-  get "favorites/create"
-
-  get "favorites/destroy"
 
   get "users/index"
   get "users/show",path: "users/show/:name"
 
-  resources :tweets
+  resources :tweets,except: [:new, :show] do
+    resource :favorite, only: [:create, :destroy]
+    
+  end  
 
   get "homes/index"
 

@@ -1,11 +1,15 @@
-- @tweets.each do |t|
-  = image_tag t.user.image_url(:thumb).to_s if t.user.image?
+- @tweets.each do |tweet|
+  = image_tag tweet.user.image_url(:thumb).to_s if tweet.user.image?
   %br
-  = '@' + t.user.name
+  = '@' + tweet.user.name
   %br
-  = t.content if t.content?
+  = tweet.content if tweet.content?
   %br
-  = image_tag t.timage_url(:thumb).to_s if t.timage?
+  = image_tag tweet.timage_url(:thumb).to_s if tweet.timage?
   %br
-  = link_to 'edit',edit_tweet_path(t)  
+  = link_to 'edit',edit_tweet_path(tweet) 
+  - if tweet.favorited? current_user
+    = link_to "unfavorite(#{tweet.favorites.size})",tweet_favorite_path(tweet),method: :delete
+  - else
+    = link_to "favorite(#{tweet.favorites.size})",tweet_favorite_path(tweet),method: :post
   %hr  
