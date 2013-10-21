@@ -12,4 +12,8 @@
     = link_to "unfavorite(#{tweet.favorites.size})",tweet_favorite_path(tweet),method: :delete
   - else
     = link_to "favorite(#{tweet.favorites.size})",tweet_favorite_path(tweet),method: :post
-  %hr  
+  - tweet.favorites.each do |favorite|
+    = User.find_by_id(favorite.user_id).screen_name
+    = image_tag User.find_by_id(favorite.user_id).image_url(:thumb).to_s if User.find_by_id(favorite.user_id).image?
+      
+%hr  
