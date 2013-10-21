@@ -63,7 +63,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.update_attributes(params[:tweet])
-        format.html { redirect_to tweets_path(), notice: 'Tweet was successfully updated.' }
+        format.html { redirect_to tweets_path, notice: 'Tweet was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
