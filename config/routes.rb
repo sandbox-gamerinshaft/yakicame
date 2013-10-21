@@ -2,12 +2,14 @@ Yakicame1::Application.routes.draw do
 
   get "users/index"
   get "users/show",path: "users/show/:name"
-
+  
   resources :tweets,except: [:new, :show] do
-    resource :favorite, only: [:create, :destroy]
-    
+  resource :favorite, only: [:create, :destroy]
   end  
-
+  
+  resources :users,only: [:index] do
+    resources :follow, only: [:create,:destroy]
+  end  
   get "homes/index"
 
   devise_for :users 

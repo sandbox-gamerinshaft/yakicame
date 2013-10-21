@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   
   has_many :tweets,dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :follows
+  has_many :following_users, through: :follows,source: :user
+  has_many :innverse_follows,class_name: Follow,foreign_key: :followed_id
+  has_many :followed_users, through: :inverse_follows 
 
   mount_uploader :image, ImageUploader
 
