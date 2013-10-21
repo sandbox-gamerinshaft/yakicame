@@ -10,6 +10,7 @@ class Tweet < ActiveRecord::Base
       f.user == user
     end
   end  
+  
 end
 
 

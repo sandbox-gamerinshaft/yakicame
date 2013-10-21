@@ -23,4 +23,10 @@ class User < ActiveRecord::Base
     login = conditions.delete(:login)
     where(conditions).where(["lower(username) = :value OR lower(email) = :value",{:value => login.downcase}]).first
   end
+
+
+  
+  def followed? user
+    Follow.exists?(usesr_id: user.id,followed_id: self.id)
+  end  
 end

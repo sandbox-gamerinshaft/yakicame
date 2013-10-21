@@ -1,6 +1,6 @@
 Yakicame1::Application.routes.draw do
 
-  get "users/index"
+  
   get "users/show",path: "users/show/:name"
   
   resources :tweets,except: [:new, :show] do
@@ -8,7 +8,7 @@ Yakicame1::Application.routes.draw do
   end  
   
   resources :users,only: [:index] do
-    resources :follow, only: [:create,:destroy]
+    resource :follow, only: [:create,:destroy]
   end  
   get "homes/index"
 
