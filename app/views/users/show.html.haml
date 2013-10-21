@@ -2,7 +2,7 @@
 %p Find me in app/views/users/show.html.haml
 
 - if @user.image? 
-  = image_tag @user.image_url(:thumb).to_s 
+  = image_tag @user.image_url(:thumb)
 = @user.name
 = @user.screen_name
 = @user.bio
