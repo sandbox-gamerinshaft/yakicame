@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  scope :except_user, -> (user_id) {
+  scope :except_user, ->(user_id) {
     where("id IS NOT ?", user_id)
   }
 
