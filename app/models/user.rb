@@ -18,13 +18,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-<<<<<<< HEAD
- 
-=======
-  scope :except_user, ->(user_id) {
-    where("id IS NOT ?", user_id)
-  }
->>>>>>> 3a9e8f16762a248442768e103ff68f2b0409c215
+
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
