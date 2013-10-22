@@ -7,8 +7,10 @@
     = u.name
     = u.bio
     = link_to 'detail',users_show_path(u)
-    = link_to 'follow',user_follow_path(u),method: :post
-    = link_to 'unfollow',user_follow_path(u),method: :delete
+    - if u == current_user
+    - else  
+      = link_to 'follow',user_follow_path(u),method: :post
+      = link_to 'unfollow',user_follow_path(u),method: :delete
   %br
 
 %hr

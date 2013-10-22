@@ -18,9 +18,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  scope :except_user, -> (user_id) {
-    where("id IS NOT ?", user_id)
-  }
+ 
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -29,11 +27,6 @@ class User < ActiveRecord::Base
   end
 
   def followed? user
-<<<<<<< HEAD
     Follow.exists?(user_id: user.id,followed_id: self.id)
   end  
-=======
-    Follow.exists?(usesr_id: user.id,followed_id: self.id)
-  end
->>>>>>> temp1
 end
