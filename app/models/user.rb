@@ -29,6 +29,6 @@ class User < ActiveRecord::Base
 
   
   def followed? user
-    Follow.exists?(usesr_id: user.id,followed_id: self.id)
+    Follow.exists?(user_id: user.id,followed_id: self.id)
   end  
 end

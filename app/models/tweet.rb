@@ -7,7 +7,7 @@ class Tweet < ActiveRecord::Base
   
   def favorited? user
     favorites.any? do |f|
-      f.user == user
+      f.user.id == user.id
     end
   end  
   
