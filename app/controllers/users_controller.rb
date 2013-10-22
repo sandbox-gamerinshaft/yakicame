@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-   @users = User.all
+   @users = User.except_user(current_user.id).all
   end
 
   def new
