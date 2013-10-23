@@ -8,6 +8,7 @@
   = image_tag tweet.timage_url(:thumb).to_s if tweet.timage?
   %br
   = link_to 'edit',edit_tweet_path(tweet) 
+  = link_to 'delete',tweet_path(tweet),method: :delete,confirm: 'Are you ok?'
   - if tweet.favorited? current_user
     = link_to "unfavorite(#{tweet.favorites.size})",tweet_favorite_path(tweet),method: :delete
   - else
